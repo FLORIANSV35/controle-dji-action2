@@ -1,4 +1,22 @@
-# Contrôle DJI Action 2 en BLE — ESP32-C3
+# DJI Action 2 BLE Control — ESP32-C3
+
+ESP32-C3 firmware that starts / stops recording on a DJI Action 2 over BLE when the Betaflight flight controller is armed / disarmed (detected over MSP).
+
+- BLE connection (service 0xFFF0), DUML commands, camera state confirmation
+- GATT cache prewarming for a fast first arming
+- Goggles OSD through an ELRS Backpack (ESP-NOW): `C OK`, `C REC`, `C STP`, `ERR`
+
+## Configuration
+- `BIND_PHRASE`: **replace the dummy phrase with your own ELRS bind phrase**.
+- Betaflight FC: RX = GPIO20, TX = GPIO21, 115200 baud.
+- Testing without an FC: send `a` (arm) / `d` (disarm) on the serial port.
+
+## Build
+Arduino IDE or `arduino-cli`, board `esp32:esp32:esp32c3`, **NimBLE-Arduino** library (h2zero) 2.x.
+
+---
+
+## Français
 
 Firmware ESP32-C3 qui démarre / arrête l'enregistrement d'une DJI Action 2 en BLE quand le contrôleur de vol Betaflight est armé / désarmé (détection via MSP).
 
